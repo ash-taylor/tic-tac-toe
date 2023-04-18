@@ -163,9 +163,7 @@ const ScreenController = (() => {
 // Defines game controller IIFE module
 const GameController = (() => {
   const PlayerOne = Player("Player One");
-  PlayerOne.token = "0";
   const PlayerTwo = Player("Player Two");
-  PlayerTwo.token = "X";
   const players = [PlayerOne, PlayerTwo];
   let _currentPlayer = players[0];
 
@@ -178,14 +176,22 @@ const GameController = (() => {
     GameBoard.emptyBoard();
     ScreenController.clearGameBoard();
     ScreenController.initButtons();
+    PlayerOne.token = "0";
+    PlayerTwo.token = "X";
+    _currentPlayer = players[0];
 
     ScreenController.displayHomeScreen();
     document.querySelectorAll(".player-buttons").forEach((item) => {
       item.addEventListener("click", () => {
-        PlayerOne.token = item.textContent;
-        item.textContent === "X"
-          ? (PlayerTwo.token = "0")
-          : (PlayerTwo.token = "X");
+        if (item.textContent === "X") {
+          PlayerOne.token = "X";
+          PlayerTwo.token = "0";
+          _currentPlayer = players[0];
+        } else {
+          PlayerOne.token = "0";
+          PlayerTwo.token = "X";
+          _currentPlayer = players[1];
+        }
         ScreenController.changeButtons(item);
       });
     });
