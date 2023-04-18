@@ -2,25 +2,95 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: whitesmoke;
+    background-color: blanchedalmond;
     display: flex;
-    justify-content: center;
+    justify-content:center;
     flex-wrap: wrap;
+}
+
+h1 {
+    font-size: 5rem;
+}
+
+h2 {
+    padding: 0px;
+    margin: 0px;
+    font-size: 3rem;
+}
+
+h3 {
+    padding: 0;
+    margin: 0;
 }
 
 header {
     text-align: center;
     font-size:2rem;
-    color: dimgray;
+    color: black;
     width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-container {
+    /* border: 1px solid black; */
+    border-radius: 10px;
+    text-align: center;
+    padding: 0px 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.player-buttons-container {
+    margin: 10px;
+    padding: 20px;
+}
+
+.player-buttons {
+    margin: 10px;
+}
+
+.player-buttons,
+#start-button,
+#restart-button {
+    transition: all .5s ease;
+    font-size: 3rem;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 10px;
+    border: 3px solid black;
+    outline: none;
+    border-radius: 10px;
+    background-color: transparent;
+    color: black;
+}
+
+#start-button {
+    margin: 20px;
+}
+
+.player-buttons:hover,
+#start-button:hover,
+#restart-button:hover {
+    cursor: pointer;
+    color: blanchedalmond;
+    background-color: black;
+}
+
+.game-screen {
+    display: flex;
+    justify-items: center;
+}
+
+.player-status {
+    font-size: 2rem;
+    text-align: center;
 }
 
 .gameboard-container {
     box-sizing: border-box;
     margin: 30px;
     padding: 10px;
-    border: 1px solid lightgrey;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
     border-radius: 5px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -29,8 +99,17 @@ header {
 }
 
 .square {
-    /* background-color: whitesmoke; */
+    background-color: whitesmoke;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     width: 150px;
     height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    font-size: 4rem;
+}
+
+.square:hover {
+    cursor: pointer;
 }
